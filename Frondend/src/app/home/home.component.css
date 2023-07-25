@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+h1 {
+  text-align: center;
+  padding-top: 35px;
+  font-family: 'Bebas Neue', cursive;
+}
+
+
+@media(max-width:900px) {
+  .grid {
+  grid-template-rows: repeat(3,minmax(0,1fr));
+  grid-template-columns: none;
+  padding-top: 75px;
+  padding-bottom: 50px;
+  gap: 20px;
+  }
+
+  header{
+    padding-bottom: 2rem;
+  }
+}
+
+.overlay{
+  background: rgb(0, 94, 50);
+}
+
+.card-title{
+  color: rgb(4, 205, 13);
+}

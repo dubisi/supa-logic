@@ -1,0 +1,32 @@
+<div class="pl-10 pt-5">supa-logic</div>
+<div class="flex justify-center items-center" style="height: 90vh">
+  <div>
+    <h1 class="text-center pb-10">Welcome back!</h1>
+    <form [formGroup]="admin">
+      <label for="username" class="block p-2">Username</label
+      ><input
+        class="block rounded-md p-2 w-60 border"
+        type="text"
+        id="username"
+        formControlName="name"
+        autofocus
+      />
+      <label for="password" class="block p-2">Password:</label
+      ><input
+        class="block rounded-md p-2 w-60 border"
+        type="password"
+        id="password"
+        formControlName="password"
+      />
+      <div class="p-1"></div>
+      <button
+        type="button"
+        class="border-solid border-2 rounded-md p-1 text-center w-60"
+        (click)="onSubmit()"
+      >
+        Login to papaling
+      </button>
+      <p class="text-center">Cancel and return to website</p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+C:\Users\hlayi\source\repos\angularproject3\obj\Debug\angularproject3.esproj.SuggestedBindingRedirects.cache
+C:\Users\hlayi\source\repos\angularproject3\obj\Debug\angularproject3.esproj.CoreCompileInputs.cache

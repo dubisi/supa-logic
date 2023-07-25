@@ -1,0 +1,188 @@
+<section>
+  <div class="flex p-10 absolute w-full justify-between">
+    <div>
+      <a href="/"> <fa-icon [icon]="home"></fa-icon> home </a
+      ><span class="pl-4"></span>
+      <button (click)="displayModal()">
+        <fa-icon [icon]="question"></fa-icon> info
+      </button>
+    </div>
+    <div class="share score">
+      <span class="pr-4">
+        <button type="button" (click)="displayShareModal()">
+          <fa-icon [icon]="share"></fa-icon>
+        </button>
+      </span>
+      <span>Score: {{ count }}%</span>
+    </div>
+  </div>
+
+  <!-- modal for info -->
+  <div
+    id="myModal"
+    class="modal fixed z-10 left-0 top-0 w-full h-full overflow-auto"
+  >
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" (click)="closeTheModal()">&times;</span>
+        <h2 class="p-4">Supa Logic</h2>
+      </div>
+      <div class="modal-body">
+        <p>
+          Each guess must be a valid 6 letter word. Hit the enter button to
+          submit.
+        </p>
+        <p class="pb-4">
+          After each guess, the color of the tiles will change to show how close
+          your guess was to the word.
+        </p>
+        <hr class="pb-2" />
+        <p>Examples</p>
+
+        <div class="flex justify-start blocks">
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+          <div class="border-2 p-3 m-1 first text-white bg-green-600">I</div>
+          <div class="border-2 p-3 m-1 first text-black">O</div>
+          <div class="border-2 p-3 m-1 first text-black">N</div>
+          <div class="border-2 p-3 m-1 first text-black">E</div>
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+        </div>
+        <p class="pb-4">The letter I is in the word and in the correct spot.</p>
+        <hr class="pb-2" />
+        <div class="flex justify-start blocks">
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+          <div class="border-2 p-3 m-1 first text-black">I</div>
+          <div class="border-2 p-3 m-1 first text-black">O</div>
+          <div class="border-2 p-3 m-1 first text-white bg-yellow-400">N</div>
+          <div class="border-2 p-3 m-1 first text-black">E</div>
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+        </div>
+        <p class="pb-4">The letter I is in the word but in the wrong spot.</p>
+        <hr class="pb-2" />
+        <div class="flex justify-start blocks">
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+          <div class="border-2 p-3 m-1 first text-black">I</div>
+          <div class="border-2 p-3 m-1 first text-black">O</div>
+          <div class="border-2 p-3 m-1 first text-white bg-gray-500">N</div>
+          <div class="border-2 p-3 m-1 first text-black">E</div>
+          <div class="border-2 p-3 m-1 first text-black">L</div>
+        </div>
+        <p class="pb-4">The letter N is not in the word in any spot.</p>
+        <hr class="pb-2" />
+        <p class="pb-4">A new Supa Logic quiz will be available each day!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- share modal -->
+  <div
+    id="myShareModal"
+    class="modal fixed z-10 left-0 top-0 w-full h-full overflow-auto"
+  >
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" (click)="closeTheShareModal()">&times;</span>
+        <h2 class="p-4">Share your score</h2>
+      </div>
+      <div class="modal-body">
+        <p class="pb-4">Your todays score is {{ count }}.</p>
+        <hr class="pb-2" />
+        <div class="flex justify-center blocks pb-4">
+          <a
+            class="share-btn twitter"
+            [href]="
+              'https://twitter.com/share?url=https://www.google.com/&text=Check out this quiz game I got score ' +
+              count
+            "
+          >
+            Twitter </a
+          ><a
+            class="share-btn facebook"
+            [href]="'https://www.facebook.com/sharer/sharer.php?u=<URL>'"
+          >
+            Facebook
+          </a>
+          <a
+            class="share-btn whatsapp"
+            [href]="
+              'https://wa.me/?text=Check out this quiz game I got ' + count
+            "
+            data-action="share/whatsapp/share"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-32" style="height: 90vh">
+    <div
+      class="border-3 p-4 rounded-md shadow-md max-w-screen-md text-center clue block mx-auto"
+      *ngIf="word"
+    >
+      {{ word!.wordClue }}
+    </div>
+
+    <div class="flex justify-center blocks pt-20" [@one1]="'one'">
+      <div
+        class="border-2 p-3 m-1 first text-white"
+        *ngIf="first"
+        [style]="first!.color"
+      >
+        {{ first.letter }}
+      </div>
+      <div
+        class="border-2 p-3 m-1 second text-white"
+        *ngIf="second"
+        [style]="second.color"
+      >
+        {{ second.letter }}
+      </div>
+      <div
+        class="border-2 p-3 m-1 third text-white"
+        *ngIf="third"
+        [style]="third.color"
+      >
+        {{ third.letter }}
+      </div>
+      <div
+        class="border-2 p-3 m-1 fourth text-white"
+        *ngIf="fourth"
+        [style]="fourth.color"
+      >
+        {{ fourth.letter }}
+      </div>
+      <div
+        class="border-2 p-3 m-1 fith text-white"
+        *ngIf="fith"
+        [style]="fith.color"
+      >
+        {{ fith.letter }}
+      </div>
+      <div
+        class="border-2 p-3 m-1 sixth text-white"
+        *ngIf="sixth"
+        [style]="sixth.color"
+      >
+        {{ sixth.letter }}
+      </div>
+    </div>
+
+    <div class="flex justify-center pt-10">
+      <input
+        id="answer"
+        type="text"
+        maxlength="6"
+        #box
+        [formControl]="answer"
+        (keyup.enter)="validateAnswer()"
+        autofocus
+        required
+        class="border-2"
+      />
+    </div>
+  </div>
+</section>

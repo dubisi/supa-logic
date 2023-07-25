@@ -1,0 +1,80 @@
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 150px));
+}
+
+input {
+  text-align: center;
+  padding: 5px;
+}
+
+.first {
+  border-color: black;
+  text-transform: capitalize;
+
+}
+
+.second {
+  border-color: black;
+  text-transform: capitalize;
+  animation: box 4s ease-out;
+}
+
+.third {
+  border-color: black;
+  text-transform: capitalize;
+  animation: box 6s ease-out;
+}
+
+.fourth {
+  border-color: black;
+  text-transform: capitalize;
+  animation: box 8s ease-out;
+}
+
+.fith {
+  border-color: black;
+  text-transform: capitalize;
+  animation: box 10s ease-out;
+}
+
+.sixth {
+  border-color: black;
+  text-transform: capitalize;
+  animation: box 12s ease-out;
+}
+
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  border-bottom-color: green;
+  border-bottom-width: 2px;
+
+}
+
+input:focus {
+  outline: none;
+}
+
+
+
+
+@keyframes box {
+
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(360deg);
+  }
+
+}
+

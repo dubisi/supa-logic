@@ -1,0 +1,30 @@
+<div class="fixed h-full bg-slate-500 overflow-x-auto m-0 p-0 w-52">
+  <h1 class="p-4 mb-10">Supa Logic</h1>
+
+  <a
+    routerLink="soccer-table"
+    routerLinkActive="active"
+    class="block p-4 border-gray-800 border-b hover:bg-red-50"
+    >world soccer</a
+  ><a
+    routerLink="american-table"
+    class="block p-4 border-gray-800 border-b hover:bg-red-50"
+    href=""
+    >world american</a
+  ><a
+    routerLink="knowledge-table"
+    class="block p-4 border-gray-800 border-b hover:bg-red-50"
+    href=""
+    >world knowledge</a
+  >
+  <div id="logout" class="fixed bottom-0 left-14 pl-3 pb-5">
+    <a [routerLink]="['/logout']" class="hover:text-red-600">Logout</a>
+  </div>
+</div>
+<div class="ml-52 p-4 h-full">
+  <h1 class="text-center">Add Your Data</h1>
+
+  <div class="flex flex-wrap items-center justify-center m-14">
+    <router-outlet></router-outlet>
+  </div>
+</div>
